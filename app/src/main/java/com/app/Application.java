@@ -12,8 +12,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EntityScan(basePackages = "com.vehicle.model, com.shared.model")
 public class Application {
 
-	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
-	}
-
+    public static void main(String[] args) {
+        SpringApplication.run(Application.class, args);
+    }
 }

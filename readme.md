@@ -12,7 +12,7 @@
 
 - [ ] Flow Architecture
 - [x] Multi Project Architecture
-- [ ] Spotless format gradle task
+- [x] Spotless format gradle task
 - [ ] Vehicle Service
 - [ ] Station and Route Operations
 - [ ] Route assignment for vehicles

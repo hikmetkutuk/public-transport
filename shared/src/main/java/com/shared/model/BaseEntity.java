@@ -1,15 +1,14 @@
 package com.shared.model;
 
 import jakarta.persistence.*;
+import java.io.Serializable;
+import java.time.LocalDateTime;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
-
-import java.io.Serializable;
-import java.time.LocalDateTime;
 
 @Getter
 @Setter

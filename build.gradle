@@ -4,6 +4,7 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '3.2.4'
 	id 'io.spring.dependency-management' version '1.1.6'
+	id 'com.diffplug.spotless' version '6.25.0'
 }
 
 group = 'com'
@@ -27,6 +28,20 @@ subprojects {
 	}
 }
 
+spotless {
+	java {
+		target fileTree('.') {
+			include '**/*.java'
+			exclude '**/build/**', '**/build-*/**'
+		}
+		toggleOffOn()
+		palantirJavaFormat()
+		removeUnusedImports()
+		trimTrailingWhitespace()
+		endWithNewline()
+	}
+}
+
 tasks.register('copyAppJar') {
 	dependsOn ':app:bootJar'
 	doLast {
@@ -39,9 +54,9 @@ tasks.register('copyAppJar') {
 }
 
 tasks.register('fullCycle') {
-	dependsOn ':app:build', ':app:bootJar', 'copyAppJar'
+	dependsOn 'spotlessApply', ':app:build', ':app:bootJar', 'copyAppJar'
 	doLast {
-		println 'Build ve bootJar görevleri başarıyla tamamlandı, JAR dosyası kök projeye kopyalandı.'
+		println 'Format, build ve bootJar görevleri başarıyla tamamlandı, JAR dosyası kök projeye kopyalandı.'
 	}
 }
 

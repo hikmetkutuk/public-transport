@@ -3,9 +3,8 @@ package com.vehicle.mapper;
 import com.vehicle.dto.VehicleRequest;
 import com.vehicle.dto.VehicleResponse;
 import com.vehicle.model.Vehicle;
-import org.springframework.stereotype.Service;
-
 import java.time.LocalDateTime;
+import org.springframework.stereotype.Service;
 
 @Service
 public class VehicleMapper {
