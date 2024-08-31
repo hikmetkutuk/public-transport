@@ -7,9 +7,9 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@ComponentScan(basePackages = {"com.app", "com.vehicle"})
-@EnableJpaRepositories(basePackages = "com.vehicle.repository")
-@EntityScan(basePackages = "com.vehicle.model, com.shared.model")
+@ComponentScan(basePackages = {"com.app", "com.vehicle", "com.station"})
+@EnableJpaRepositories(basePackages = {"com.vehicle.repository", "com.station.repository"})
+@EntityScan(basePackages = "com.vehicle.model, com.shared.model, com.station.model")
 public class Application {
 
     public static void main(String[] args) {
