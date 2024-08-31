@@ -34,4 +34,20 @@ public class StationMapper {
                 .lastModifiedDate(LocalDateTime.now())
                 .build();
     }
+
+    public Station toStation(StationResponse stationResponse) {
+        if (stationResponse == null) {
+            return null;
+        }
+        return Station.builder()
+                .id(stationResponse.id())
+                .longitude(stationResponse.longitude())
+                .latitude(stationResponse.latitude())
+                .elevation(stationResponse.elevation())
+                .number(stationResponse.number())
+                .name(stationResponse.name())
+                .createdDate(stationResponse.createdDate())
+                .lastModifiedDate(stationResponse.lastModifiedDate())
+                .build();
+    }
 }

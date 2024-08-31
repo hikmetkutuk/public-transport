@@ -14,7 +14,7 @@
 - [x] Multi Project Architecture
 - [x] Spotless format gradle task
 - [x] Vehicle Service
-- [ ] Station and Route Operations
+- [x] Station and Route Operations
 - [ ] Route assignment for vehicles
 - [ ] Authentication and Authorization
 - [x] Exception Handling

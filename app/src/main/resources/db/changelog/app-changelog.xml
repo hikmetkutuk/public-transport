@@ -8,4 +8,5 @@
     <include file="db/changelog/scripts/V1__create_vehicle_table.sql" />
     <include file="db/changelog/scripts/V2__create_users.sql" />
     <include file="db/changelog/scripts/V3__create_station_table.sql" />
+    <include file="db/changelog/scripts/V4__create_route_table.sql" />
 </databaseChangeLog>
