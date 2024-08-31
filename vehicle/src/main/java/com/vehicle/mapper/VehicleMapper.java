@@ -15,7 +15,9 @@ public class VehicleMapper {
                 vehicle.getModel(),
                 vehicle.getColor(),
                 vehicle.getStatus(),
-                vehicle.getCapacity());
+                vehicle.getCapacity(),
+                vehicle.getCreatedDate(),
+                vehicle.getLastModifiedDate());
     }
 
     public Vehicle toVehicle(VehicleRequest vehicleRequest) {

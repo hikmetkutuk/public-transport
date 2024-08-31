@@ -10,10 +10,10 @@
 ![Docker](https://img.shields.io/static/v1?&logo=docker&label=docker&message=25.0.2&color=086dd7&style=for-the-badge)
 ---
 
-- [ ] Flow Architecture
+- [x] Flow Architecture
 - [x] Multi Project Architecture
 - [x] Spotless format gradle task
-- [ ] Vehicle Service
+- [x] Vehicle Service
 - [ ] Station and Route Operations
 - [ ] Route assignment for vehicles
 - [ ] Authentication and Authorization
