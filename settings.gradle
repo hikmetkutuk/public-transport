@@ -1,0 +1,5 @@
+rootProject.name = 'pt'
+include 'shared'
+include 'app'
+include 'vehicle'
+

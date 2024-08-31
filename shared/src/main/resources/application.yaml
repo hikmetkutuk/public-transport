@@ -1,0 +1,16 @@
+spring:
+    application:
+      name: public-transport
+    jpa:
+      show-sql: 'true'
+      hibernate:
+        ddl-auto: none
+      database-platform: org.hibernate.dialect.PostgreSQLDialect
+    datasource:
+      username: smartict
+      url: jdbc:postgresql://localhost:5432/pt
+      password: smartict
+      driver-class-name: org.postgresql.Driver
+
+server:
+  port: 8090

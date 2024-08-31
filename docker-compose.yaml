@@ -1,0 +1,14 @@
+version: '4'
+services:
+  db:
+    container_name: pt-db
+    image: postgres:15.5
+    environment:
+      POSTGRES_USER: smartict
+      POSTGRES_PASSWORD: smartict
+      PGDATA: /data/postgres
+    volumes:
+      - ./data/:/data/postgres
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
