@@ -13,5 +13,14 @@ spring:
     driver-class-name: org.postgresql.Driver
   liquibase:
     change-log: classpath:db/changelog/app-changelog.xml
+
 server:
   port: 8090
+
+application:
+  security:
+    jwt:
+      secret-key: 4c3cc5cd2c8e7ee658b342d44ff3a4b2bb318401b6819fc5f39e43f9d0abb4f53cd5c23a1d168bf468e549119a371177171721b8779a3f59b72a4ce3f1fb84d4
+      expiration: 86400000
+      refresh-token:
+        expiration: 604800000
