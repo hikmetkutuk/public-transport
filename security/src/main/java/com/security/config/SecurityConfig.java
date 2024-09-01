@@ -28,7 +28,15 @@ public class SecurityConfig {
     private static final String[] USER_ROLE_LIST = new String[] {"/vehicle/list", "/station/list", "/route/list"};
 
     private static final String[] ADMIN_ROLE_LIST = new String[] {
-        "/vehicle/add", "/vehicle/update", "/station/add", "/station/update", "/route/add", "/route/update",
+        "/vehicle/add",
+        "/vehicle/update/*",
+        "/vehicle/delete/*",
+        "/station/add",
+        "/station/update/*",
+        "/station/delete/*",
+        "/route/add",
+        "/route/update/*",
+        "/route/delete/*"
     };
 
     @Bean

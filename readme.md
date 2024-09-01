@@ -15,7 +15,7 @@
 - [x] Spotless format gradle task
 - [x] Vehicle Service
 - [x] Station and Route Operations
-- [ ] Route assignment for vehicles
+- [x] Route assignment for vehicles
 - [ ] Authentication and Authorization
 - [x] Exception Handling
 - [x] Docker Compose
