@@ -1,5 +1,6 @@
 package com.vehicle.dto;
 
+import com.shared.model.Route;
 import java.time.LocalDateTime;
 
 public record VehicleResponse(
@@ -9,5 +10,6 @@ public record VehicleResponse(
         String color,
         String status,
         int capacity,
+        Route route,
         LocalDateTime createdDate,
         LocalDateTime lastModifiedDate) {}

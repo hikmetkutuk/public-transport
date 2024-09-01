@@ -1,6 +1,5 @@
-package com.station.model;
+package com.shared.model;
 
-import com.shared.model.BaseEntity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import lombok.Getter;

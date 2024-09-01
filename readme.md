@@ -16,7 +16,7 @@
 - [x] Vehicle Service
 - [x] Station and Route Operations
 - [x] Route assignment for vehicles
-- [ ] Authentication and Authorization
+- [x] Authentication and Authorization
 - [x] Exception Handling
 - [x] Docker Compose
 - [x] Json Mapper
@@ -24,3 +24,10 @@
 - [ ] Log Management
 - [ ] Swagger Doc
 - [ ] Unit and Integration Tests
+
+---
+
+### Notlar
+
+- Transaction işlemi, bir veya daha fazla SQL sorgusunun aynı süreçte işlenmesini sağlar. 
+Bu sayede, eğer istenmeyen bir durum oluşursa tüm bu işlemleri geri alabiliriz (rollback) veya hepsini aynı anda onaylayabiliriz.

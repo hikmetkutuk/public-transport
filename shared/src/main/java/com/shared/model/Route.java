@@ -1,9 +1,10 @@
-package com.route.model;
+package com.shared.model;
 
-import com.shared.model.BaseEntity;
-import com.station.model.Station;
-import com.vehicle.model.Vehicle;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -24,9 +25,10 @@ public class Route extends BaseEntity {
     @JoinColumn(name = "end_station_id")
     private Station endStation;
 
-    @ManyToOne
-    @JoinColumn(name = "vehicle_id")
-    private Vehicle vehicle;
+    @Builder.Default
+    @JsonIgnore
+    @OneToMany(mappedBy = "route", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Vehicle> vehicles = new ArrayList<>();
 
     private Double estimatedDuration;
 }

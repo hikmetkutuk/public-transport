@@ -1,27 +1,35 @@
 package com.vehicle.service;
 
+import com.route.repository.RouteRepository;
 import com.shared.exception.DataAccessException;
 import com.shared.exception.DataCreationException;
 import com.shared.exception.DataNotFoundException;
 import com.shared.exception.UnexpectedException;
+import com.shared.model.Route;
+import com.shared.model.Vehicle;
 import com.vehicle.dto.VehicleRequest;
 import com.vehicle.dto.VehicleResponse;
 import com.vehicle.mapper.VehicleMapper;
 import com.vehicle.repository.VehicleRepository;
+import jakarta.persistence.EntityNotFoundException;
+import jakarta.transaction.Transactional;
 import java.time.LocalDateTime;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 @Slf4j
 @Service
 public class VehicleService {
     private final VehicleRepository vehicleRepository;
+    private final RouteRepository routeRepository;
     private final VehicleMapper mapper;
 
-    public VehicleService(VehicleRepository vehicleRepository, VehicleMapper mapper) {
+    public VehicleService(VehicleRepository vehicleRepository, RouteRepository routeRepository, VehicleMapper mapper) {
         this.vehicleRepository = vehicleRepository;
+        this.routeRepository = routeRepository;
         this.mapper = mapper;
     }
 
@@ -105,6 +113,38 @@ public class VehicleService {
             throw new DataAccessException("Error accessing data from database: " + e.getMessage());
         } catch (Exception e) {
             throw new UnexpectedException("Unexpected error occurred while deleting vehicle data: " + e.getMessage());
+        }
+    }
+
+    @Transactional
+    public ResponseEntity<VehicleResponse> assignRouteToVehicle(Long vehicleId, Long routeId) {
+        try {
+            Vehicle vehicle = vehicleRepository
+                    .findById(vehicleId)
+                    .orElseThrow(() -> new EntityNotFoundException("Vehicle not found with id: " + vehicleId));
+            Route route = routeRepository
+                    .findById(routeId)
+                    .orElseThrow(() -> new EntityNotFoundException("Route not found with id: " + routeId));
+
+            if (vehicle.getRoute() != null) {
+                Route currentRoute = vehicle.getRoute();
+                currentRoute.getVehicles().remove(vehicle);
+                routeRepository.save(currentRoute);
+            }
+
+            vehicle.setRoute(route);
+            route.getVehicles().add(vehicle);
+
+            vehicleRepository.save(vehicle);
+            routeRepository.save(route);
+
+            log.info("Route assigned to vehicle successfully: {}", vehicle);
+            return ResponseEntity.ok(mapper.fromVehicle(vehicle));
+        } catch (DataAccessException e) {
+            throw new DataAccessException("Error accessing data from database: " + e.getMessage());
+        } catch (Exception e) {
+            throw new UnexpectedException(
+                    "Unexpected error occurred while assigning route to vehicle: " + e.getMessage());
         }
     }
 }

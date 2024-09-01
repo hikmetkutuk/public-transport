@@ -1,5 +1,6 @@
 package com.vehicle.controller;
 
+import com.vehicle.dto.AssignRouteRequest;
 import com.vehicle.dto.VehicleRequest;
 import com.vehicle.dto.VehicleResponse;
 import com.vehicle.service.VehicleService;
@@ -41,5 +42,10 @@ public class VehicleController {
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> deleteVehicle(@PathVariable Long id) {
         return ResponseEntity.ok(vehicleService.deleteVehicle(id));
+    }
+
+    @PostMapping("/assign-route")
+    public ResponseEntity<VehicleResponse> assignRouteToVehicle(@RequestBody AssignRouteRequest request) {
+        return vehicleService.assignRouteToVehicle(request.vehicleId(), request.routeId());
     }
 }

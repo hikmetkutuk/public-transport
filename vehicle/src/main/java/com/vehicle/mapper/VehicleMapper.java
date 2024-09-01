@@ -1,8 +1,8 @@
 package com.vehicle.mapper;
 
+import com.shared.model.Vehicle;
 import com.vehicle.dto.VehicleRequest;
 import com.vehicle.dto.VehicleResponse;
-import com.vehicle.model.Vehicle;
 import java.time.LocalDateTime;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +16,7 @@ public class VehicleMapper {
                 vehicle.getColor(),
                 vehicle.getStatus(),
                 vehicle.getCapacity(),
+                vehicle.getRoute(),
                 vehicle.getCreatedDate(),
                 vehicle.getLastModifiedDate());
     }

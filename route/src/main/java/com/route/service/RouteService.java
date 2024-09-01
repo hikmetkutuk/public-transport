@@ -3,13 +3,13 @@ package com.route.service;
 import com.route.dto.RouteRequest;
 import com.route.dto.RouteResponse;
 import com.route.mapper.RouteMapper;
-import com.route.model.Route;
 import com.route.repository.RouteRepository;
 import com.shared.exception.DataAccessException;
 import com.shared.exception.UnexpectedException;
+import com.shared.model.Route;
+import com.shared.model.Station;
 import com.station.dto.StationResponse;
 import com.station.mapper.StationMapper;
-import com.station.model.Station;
 import com.station.service.StationService;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityNotFoundException;
@@ -30,17 +30,19 @@ public class RouteService {
     private final StationService stationService;
 
     @PersistenceContext
-    private EntityManager entityManager;
+    private final EntityManager entityManager;
 
     public RouteService(
             RouteRepository routeRepository,
             RouteMapper routeMapper,
             StationMapper stationMapper,
-            StationService stationService) {
+            StationService stationService,
+            EntityManager entityManager) {
         this.routeRepository = routeRepository;
         this.routeMapper = routeMapper;
         this.stationMapper = stationMapper;
         this.stationService = stationService;
+        this.entityManager = entityManager;
     }
 
     @Transactional

@@ -2,10 +2,10 @@ package com.route.mapper;
 
 import com.route.dto.RouteRequest;
 import com.route.dto.RouteResponse;
-import com.route.model.Route;
+import com.shared.model.Route;
+import com.shared.model.Station;
 import com.station.dto.StationResponse;
 import com.station.mapper.StationMapper;
-import com.station.model.Station;
 import com.station.service.StationService;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityNotFoundException;
@@ -33,7 +33,7 @@ public class RouteMapper {
                 route.getId(),
                 stationMapper.fromStation(startStation),
                 stationMapper.fromStation(endStation),
-                route.getVehicle(),
+                route.getVehicles(),
                 route.getEstimatedDuration(),
                 route.getCreatedDate(),
                 route.getLastModifiedDate());

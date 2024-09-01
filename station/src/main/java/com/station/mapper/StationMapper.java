@@ -1,8 +1,8 @@
 package com.station.mapper;
 
+import com.shared.model.Station;
 import com.station.dto.StationRequest;
 import com.station.dto.StationResponse;
-import com.station.model.Station;
 import java.time.LocalDateTime;
 import org.springframework.stereotype.Service;
 
