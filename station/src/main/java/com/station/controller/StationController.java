@@ -3,6 +3,7 @@ package com.station.controller;
 import com.station.dto.StationRequest;
 import com.station.dto.StationResponse;
 import com.station.service.StationService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import java.util.List;
 import org.springframework.http.ResponseEntity;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/station")
+@Tag(name = "Station", description = "Station management API")
 public class StationController {
     private final StationService stationService;
 

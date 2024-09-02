@@ -4,6 +4,7 @@ import com.vehicle.dto.AssignRouteRequest;
 import com.vehicle.dto.VehicleRequest;
 import com.vehicle.dto.VehicleResponse;
 import com.vehicle.service.VehicleService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import java.util.List;
 import org.springframework.http.ResponseEntity;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/vehicle")
+@Tag(name = "Vehicle", description = "Vehicle management API")
 public class VehicleController {
     private final VehicleService vehicleService;
 

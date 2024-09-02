@@ -3,6 +3,7 @@ package com.route.controller;
 import com.route.dto.RouteRequest;
 import com.route.dto.RouteResponse;
 import com.route.service.RouteService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import java.util.List;
 import org.springframework.http.ResponseEntity;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/route")
+@Tag(name = "Route", description = "Route management API")
 public class RouteController {
     private final RouteService routeService;
 
