@@ -12,7 +12,7 @@
 
 - [x] Flow Architecture
 - [x] Multi Project Architecture
-- [ ] User data and test data added when project runs
+- [x] User data and test data added when project runs
 - [x] Spotless format gradle task
 - [x] Vehicle Service
 - [x] Station and Route Operations

@@ -10,11 +10,6 @@ CREATE TABLE users (
     last_modified_date TIMESTAMP DEFAULT NOW()
 );
 
-INSERT INTO users (name, email, password, role) VALUES
-('user', 'user@mail.com', '$2a$10$lYIS9Mk5JxHPL1PfZRqKIendJ6BaKIJrzp48TqHs.ItSxBVMzKXgu', 'USER'),
-('admin', 'admin@mail.com', '$2a$10$lYIS9Mk5JxHPL1PfZRqKIendJ6BaKIJrzp48TqHs.ItSxBVMzKXgu', 'ADMIN'),
-('superadmin', 'superadmin@mail.com', '$2a$10$lYIS9Mk5JxHPL1PfZRqKIendJ6BaKIJrzp48TqHs.ItSxBVMzKXgu', 'SUPER_ADMIN');
-
 CREATE TABLE stations (
     id BIGSERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
@@ -46,3 +41,5 @@ CREATE TABLE vehicles (
     created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     last_modified_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+
