@@ -8,6 +8,7 @@
 ![Gradle](https://img.shields.io/static/v1?&logo=gradle&label=gradle&message=8.8&color=32abc2&style=for-the-badge)
 ![Postgres](https://img.shields.io/static/v1?&logo=postgresql&label=postgre%20sql&message=15.5&color=336791&style=for-the-badge)
 ![Docker](https://img.shields.io/static/v1?&logo=docker&label=docker&message=25.0.2&color=086dd7&style=for-the-badge)
+![Swagger](https://img.shields.io/static/v1?&logo=swagger&label=swagger&message=3.0.1&color=44cc11&style=for-the-badge)
 ---
 
 - [x] Flow Architecture
@@ -23,7 +24,7 @@
 - [x] Json Mapper
 - [x] Database Version Control with Liquibase
 - [ ] Log Management
-- [ ] Swagger Doc
+- [x] Swagger Doc
 - [x] Unit and Integration Tests
 
 ---
@@ -38,5 +39,18 @@
 ```
 
 ```
-./gradlew fullCycle   // Format, build ve jar kopyalama ve çalıştırma işlemlerini yapar.
+./gradlew fullCycle   // Format, build, jar kopyalama ve çalıştırma işlemlerini yapar.
 ```
+
+#### swagger doc
+http://localhost:8090/swagger-ui/index.html
+
+#### kullanıcılar
+email: "user@mail.com"
+password: "123456"
+
+email: "admin@mail.com"
+password: "123456"
+
+email: "superadmin@mail.com"
+password: "123456"

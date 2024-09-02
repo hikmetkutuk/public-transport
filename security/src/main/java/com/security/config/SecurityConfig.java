@@ -24,7 +24,10 @@ public class SecurityConfig {
         this.jwtAuthFilter = jwtAuthFilter;
     }
 
-    private static final String[] WHITE_LIST = new String[] {"/login"};
+    private static final String[] WHITE_LIST = new String[] {
+            "/login",
+            "/swagger-ui.html", "/swagger-ui/**", "/v3/api-docs/**",
+            "/swagger-resources/**", "/api-docs/**",};
     private static final String[] USER_ROLE_LIST = new String[] {"/vehicle/list", "/station/list", "/route/list"};
 
     private static final String[] ADMIN_ROLE_LIST = new String[] {
