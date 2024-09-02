@@ -2,7 +2,6 @@ package com.log.controller;
 
 import com.log.service.LogService;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import java.io.IOException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

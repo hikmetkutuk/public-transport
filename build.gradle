@@ -82,7 +82,7 @@ tasks.register('runJar', Exec) {
 
 tasks.register('fullCycle') {
 	group = 'application'
-	dependsOn 'spotlessApply', ':app:build', ':app:bootJar', 'copyAppJar', 'runJar'
+	dependsOn 'buildCycle', 'runJar'
 	doLast {
 		println 'Format, build ve bootJar görevleri başarıyla tamamlandı, JAR dosyası kök projeye kopyalandı ve çalıştırıldı.'
 	}

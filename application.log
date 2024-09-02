@@ -7,3 +7,14 @@
 2024-09-02 09:01:09 INFO  com.security.service.AuthService - User admin@mail.com logged in successfully
 2024-09-02 09:08:57 INFO  com.security.service.AuthService - User admin@mail.com logged in successfully
 2024-09-02 09:09:31 INFO  com.station.service.StationService - Stations retrieved successfully
+2024-09-02 09:23:57 INFO  com.security.service.AuthService - User admin@mail.com logged in successfully
+2024-09-02 09:36:52 INFO  com.station.service.StationService - Station retrieved successfully: 3
+2024-09-02 09:36:52 INFO  com.station.service.StationService - Station retrieved successfully: 5
+2024-09-02 09:36:52 INFO  com.route.service.RouteService - Route created successfully: 11
+2024-09-02 09:37:29 ERROR com.route.service.RouteService - Failed to retrieve route: Route not found with id: 22
+2024-09-02 09:39:33 ERROR com.route.service.RouteService - Failed to retrieve route: Route not found with id: 22
+2024-09-02 09:55:56 INFO  com.security.service.AuthService - User admin@mail.com logged in successfully
+2024-09-02 09:56:50 INFO  com.station.service.StationService - Station created successfully with id: 11
+2024-09-02 10:07:19 INFO  com.station.service.StationService - Station created successfully with id: 12
+2024-09-02 10:07:59 INFO  com.security.service.AuthService - User admin@mail.com logged in successfully
+2024-09-02 10:09:01 ERROR com.route.service.RouteService - Failed to retrieve route: Route not found with id: 22
