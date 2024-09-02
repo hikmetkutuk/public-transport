@@ -29,6 +29,14 @@
 ---
 
 ### Notlar
+```
+./gradlew buildCycle   // Format, build ve jar kopyalama işlemlerini yapar.
+```
 
-- Transaction işlemi, bir veya daha fazla SQL sorgusunun aynı süreçte işlenmesini sağlar. 
-Bu sayede, eğer istenmeyen bir durum oluşursa tüm bu işlemleri geri alabiliriz (rollback) veya hepsini aynı anda onaylayabiliriz.
+```
+./gradlew runJar   // Kopyalanan jar dosyasını çalıştırır.
+```
+
+```
+./gradlew fullCycle   // Format, build ve jar kopyalama ve çalıştırma işlemlerini yapar.
+```

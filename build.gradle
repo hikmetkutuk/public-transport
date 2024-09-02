@@ -53,7 +53,8 @@ tasks.register('copyAppJar') {
 	}
 }
 
-tasks.register('fullCycle') {
+tasks.register('buildCycle') {
+	group = 'build'
 	dependsOn 'spotlessApply', ':app:build', ':app:bootJar', 'copyAppJar'
 	doLast {
 		println 'Format, build ve bootJar görevleri başarıyla tamamlandı, JAR dosyası kök projeye kopyalandı.'
@@ -61,7 +62,7 @@ tasks.register('fullCycle') {
 }
 
 tasks.named('build') {
-	dependsOn tasks.named('fullCycle')
+	dependsOn tasks.named('buildCycle')
 }
 
 tasks.named('bootJar') {
@@ -71,6 +72,20 @@ tasks.named('bootJar') {
 
 tasks.named('jar') {
 	enabled = false
+}
+
+tasks.register('runJar', Exec) {
+	group = 'application'
+	description = 'Run the generated JAR file'
+	commandLine 'java', '-jar', 'build/libs/app-0.0.1-SNAPSHOT.jar'
+}
+
+tasks.register('fullCycle') {
+	group = 'application'
+	dependsOn 'spotlessApply', ':app:build', ':app:bootJar', 'copyAppJar', 'runJar'
+	doLast {
+		println 'Format, build ve bootJar görevleri başarıyla tamamlandı, JAR dosyası kök projeye kopyalandı ve çalıştırıldı.'
+	}
 }
 
 dependencies {
