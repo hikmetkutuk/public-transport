@@ -46,11 +46,13 @@ public class StationService {
             var stations = stationRepository.findAll().stream()
                     .map(mapper::fromStation)
                     .toList();
-            log.info("Stations retrieved successfully: {}", stations);
+            log.info("Stations retrieved successfully");
             return ResponseEntity.ok(stations);
         } catch (DataAccessException e) {
+            log.error("Error accessing data from database: " + e.getMessage());
             throw new DataAccessException("Error accessing data from database: " + e.getMessage());
         } catch (Exception e) {
+            log.error("Unexpected error occurred while retrieving station data: " + e.getMessage());
             throw new UnexpectedException("Unexpected error occurred while retrieving station data: " + e.getMessage());
         }
     }
@@ -60,11 +62,13 @@ public class StationService {
             var station = stationRepository
                     .findById(id)
                     .orElseThrow(() -> new DataNotFoundException("Station not found with id: " + id));
-            log.info("Station retrieved successfully: {}", station);
+            log.info("Station retrieved successfully: {}", station.getId());
             return ResponseEntity.ok(mapper.fromStation(station));
         } catch (DataAccessException e) {
+            log.error("Error accessing data from database: " + e.getMessage());
             throw new DataAccessException("Error accessing data from database: " + e.getMessage());
         } catch (Exception e) {
+            log.error("Unexpected error occurred while retrieving station data: " + e.getMessage());
             throw new UnexpectedException("Unexpected error occurred while retrieving station data: " + e.getMessage());
         }
     }
@@ -87,8 +91,10 @@ public class StationService {
             log.info("Station updated successfully with id: {}", updatedStation.getId());
             return ResponseEntity.ok(mapper.fromStation(updatedStation));
         } catch (DataAccessException e) {
+            log.error("Error accessing data from database: " + e.getMessage());
             throw new DataAccessException("Error accessing data from database: " + e.getMessage());
         } catch (Exception e) {
+            log.error("Unexpected error occurred while updating station data: " + e.getMessage());
             throw new UnexpectedException("Unexpected error occurred while updating station data: " + e.getMessage());
         }
     }
@@ -102,8 +108,10 @@ public class StationService {
             log.info("Station deleted successfully with id: {}", id);
             return ResponseEntity.ok("Station deleted successfully with id: " + id);
         } catch (DataAccessException e) {
+            log.error("Error accessing data from database: " + e.getMessage());
             throw new DataAccessException("Error accessing data from database: " + e.getMessage());
         } catch (Exception e) {
+            log.error("Unexpected error occurred while deleting station data: " + e.getMessage());
             throw new UnexpectedException("Unexpected error occurred while deleting station data: " + e.getMessage());
         }
     }

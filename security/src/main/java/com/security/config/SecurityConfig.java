@@ -25,9 +25,8 @@ public class SecurityConfig {
     }
 
     private static final String[] WHITE_LIST = new String[] {
-            "/login",
-            "/swagger-ui.html", "/swagger-ui/**", "/v3/api-docs/**",
-            "/swagger-resources/**", "/api-docs/**",};
+        "/login", "/swagger-ui.html", "/swagger-ui/**", "/v3/api-docs/**", "/swagger-resources/**", "/api-docs/**",
+    };
     private static final String[] USER_ROLE_LIST = new String[] {"/vehicle/list", "/station/list", "/route/list"};
 
     private static final String[] ADMIN_ROLE_LIST = new String[] {
@@ -39,12 +38,11 @@ public class SecurityConfig {
         "/station/delete/*",
         "/route/add",
         "/route/update/*",
-        "/route/delete/*"
+        "/route/delete/*",
+        "/report"
     };
 
-    private static final String[] SUPER_ADMIN_ROLE_LIST = new String[] {
-        "/vehicle/assign-route/*"
-    };
+    private static final String[] SUPER_ADMIN_ROLE_LIST = new String[] {"/vehicle/assign-route/*"};
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {

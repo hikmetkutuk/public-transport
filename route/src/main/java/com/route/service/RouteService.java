@@ -50,6 +50,7 @@ public class RouteService {
         try {
             Route route = routeMapper.toRoute(routeRequest);
             route = routeRepository.save(route);
+            log.info("Route created successfully: {}", route.getId());
             return ResponseEntity.ok(routeMapper.fromRoute(route));
         } catch (Exception e) {
             log.error("Failed to create route", e);
@@ -63,11 +64,13 @@ public class RouteService {
                     .map(routeMapper::fromRoute)
                     .toList();
 
-            log.info("Routes retrieved successfully: {}", routes);
+            log.info("Routes retrieved successfully");
             return ResponseEntity.ok(routes);
         } catch (DataAccessException e) {
+            log.error("Failed to retrieve routes: " + e.getMessage());
             throw new DataAccessException("Error accessing route data from database: " + e.getMessage());
         } catch (Exception e) {
+            log.error("Unexpected error occurred while retrieving routes: " + e.getMessage());
             throw new UnexpectedException("Unexpected error occurred while retrieving route data: " + e.getMessage());
         }
     }
@@ -77,11 +80,13 @@ public class RouteService {
             var route = routeRepository
                     .findById(id)
                     .orElseThrow(() -> new DataAccessException("Route not found with id: " + id));
-            log.info("Route retrieved successfully: {}", route);
+            log.info("Route retrieved successfully: {}", route.getId());
             return ResponseEntity.ok(routeMapper.fromRoute(route));
         } catch (DataAccessException e) {
+            log.error("Failed to retrieve route: " + e.getMessage());
             throw new DataAccessException("Error accessing route data from database: " + e.getMessage());
         } catch (Exception e) {
+            log.error("Unexpected error occurred while retrieving route: " + e.getMessage());
             throw new UnexpectedException("Unexpected error occurred while retrieving route data: " + e.getMessage());
         }
     }
@@ -116,11 +121,13 @@ public class RouteService {
             route.setEstimatedDuration(Math.random());
             route.setLastModifiedDate(LocalDateTime.now());
             route = routeRepository.save(route);
-            log.info("Route updated successfully: {}", route);
+            log.info("Route updated successfully: {}", route.getId());
             return ResponseEntity.ok(routeMapper.fromRoute(route));
         } catch (DataAccessException e) {
+            log.error("Failed to update route: " + e.getMessage());
             throw new DataAccessException("Error accessing route data from database: " + e.getMessage());
         } catch (Exception e) {
+            log.error("Unexpected error occurred while updating route: " + e.getMessage());
             throw new UnexpectedException("Unexpected error occurred while updating route data: " + e.getMessage());
         }
     }
@@ -131,8 +138,10 @@ public class RouteService {
             log.info("Route deleted successfully: {}", id);
             return ResponseEntity.ok("Route deleted successfully");
         } catch (DataAccessException e) {
+            log.error("Failed to delete route: " + e.getMessage());
             throw new DataAccessException("Error accessing route data from database: " + e.getMessage());
         } catch (Exception e) {
+            log.error("Unexpected error occurred while deleting route: " + e.getMessage());
             throw new UnexpectedException("Unexpected error occurred while deleting route data: " + e.getMessage());
         }
     }

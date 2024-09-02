@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <appender name="LOG" class="ch.qos.logback.core.FileAppender">
+        <file>application.log</file>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="STDOUT" />
+    </root>
+
+    <logger name="com.security" level="INFO">
+        <appender-ref ref="LOG" />
+    </logger>
+
+    <logger name="com.station" level="INFO">
+        <appender-ref ref="LOG" />
+    </logger>
+
+    <logger name="com.vehicle" level="INFO">
+        <appender-ref ref="LOG" />
+    </logger>
+
+    <logger name="com.route" level="INFO">
+        <appender-ref ref="LOG" />
+    </logger>
+
+</configuration>

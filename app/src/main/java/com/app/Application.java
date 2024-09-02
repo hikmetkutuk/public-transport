@@ -8,7 +8,15 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
 @ComponentScan(
-        basePackages = {"com.app", "com.vehicle", "com.station", "com.route", "com.security", "com.security.config"})
+        basePackages = {
+            "com.app",
+            "com.vehicle",
+            "com.station",
+            "com.route",
+            "com.security",
+            "com.security.config",
+            "com.log"
+        })
 @EnableJpaRepositories(
         basePackages = {
             "com.vehicle.repository",

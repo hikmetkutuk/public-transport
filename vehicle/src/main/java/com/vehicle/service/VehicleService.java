@@ -53,11 +53,13 @@ public class VehicleService {
             var vehicles = vehicleRepository.findAll().stream()
                     .map(mapper::fromVehicle)
                     .toList();
-            log.info("Vehicles retrieved successfully: {}", vehicles);
+            log.info("Vehicles retrieved successfully");
             return vehicles;
         } catch (DataAccessException e) {
+            log.error("Error accessing data from database: " + e.getMessage());
             throw new DataAccessException("Error accessing data from database: " + e.getMessage());
         } catch (Exception e) {
+            log.error("Unexpected error occurred while retrieving vehicle data: " + e.getMessage());
             throw new UnexpectedException("Unexpected error occurred while retrieving vehicle data: " + e.getMessage());
         }
     }
@@ -68,11 +70,13 @@ public class VehicleService {
                     .findById(id)
                     .map(mapper::fromVehicle)
                     .orElseThrow(() -> new DataAccessException("Vehicle not found with id: " + id));
-            log.info("Vehicle retrieved successfully: {}", vehicle);
+            log.info("Vehicle retrieved successfully: {}", vehicle.id());
             return vehicle;
         } catch (DataAccessException e) {
+            log.error("Error accessing data from database: " + e.getMessage());
             throw new DataAccessException("Error accessing data from database: " + e.getMessage());
         } catch (Exception e) {
+            log.error("Unexpected error occurred while retrieving vehicle data: " + e.getMessage());
             throw new UnexpectedException("Unexpected error occurred while retrieving vehicle data: " + e.getMessage());
         }
     }
@@ -91,11 +95,13 @@ public class VehicleService {
             vehicle.setLastModifiedDate(LocalDateTime.now());
 
             var updatedVehicle = vehicleRepository.save(vehicle);
-            log.info("Vehicle updated successfully: {}", updatedVehicle);
+            log.info("Vehicle updated successfully: {}", updatedVehicle.getId());
             return mapper.fromVehicle(updatedVehicle);
         } catch (DataAccessException e) {
+            log.error("Error accessing data from database: " + e.getMessage());
             throw new DataAccessException("Error accessing data from database: " + e.getMessage());
         } catch (Exception e) {
+            log.error("Unexpected error occurred while updating vehicle data: " + e.getMessage());
             throw new UnexpectedException("Unexpected error occurred while updating vehicle data: " + e.getMessage());
         }
     }
@@ -110,8 +116,10 @@ public class VehicleService {
             log.info("Vehicle deleted successfully with id: {}", id);
             return "Vehicle deleted successfully with id: " + id;
         } catch (DataAccessException e) {
+            log.error("Error accessing data from database: " + e.getMessage());
             throw new DataAccessException("Error accessing data from database: " + e.getMessage());
         } catch (Exception e) {
+            log.error("Unexpected error occurred while deleting vehicle data: " + e.getMessage());
             throw new UnexpectedException("Unexpected error occurred while deleting vehicle data: " + e.getMessage());
         }
     }
@@ -138,11 +146,13 @@ public class VehicleService {
             vehicleRepository.save(vehicle);
             routeRepository.save(route);
 
-            log.info("Route assigned to vehicle successfully: {}", vehicle);
+            log.info("Route {} assigned to vehicle {} successfully", route.getId(), vehicle.getId());
             return ResponseEntity.ok(mapper.fromVehicle(vehicle));
         } catch (DataAccessException e) {
+            log.error("Error accessing data from database: " + e.getMessage());
             throw new DataAccessException("Error accessing data from database: " + e.getMessage());
         } catch (Exception e) {
+            log.error("Unexpected error occurred while assigning route to vehicle: " + e.getMessage());
             throw new UnexpectedException(
                     "Unexpected error occurred while assigning route to vehicle: " + e.getMessage());
         }

@@ -1,0 +1,9 @@
+2024-09-02 05:38:36 INFO  com.security.service.AuthService - User admin@mail.com logged in successfully
+2024-09-02 05:47:06 INFO  com.vehicle.service.VehicleService - Vehicles retrieved successfully
+2024-09-02 05:48:20 ERROR com.vehicle.service.VehicleService - Vehicle not found in database with id: 88
+2024-09-02 05:48:20 ERROR com.vehicle.service.VehicleService - Unexpected error occurred while deleting vehicle data: Vehicle not found in database with id: 88
+2024-09-02 05:49:28 INFO  com.station.service.StationService - Station retrieved successfully: com.shared.model.Station@6dfc56a2
+2024-09-02 08:46:48 INFO  com.security.service.AuthService - User admin@mail.com logged in successfully
+2024-09-02 09:01:09 INFO  com.security.service.AuthService - User admin@mail.com logged in successfully
+2024-09-02 09:08:57 INFO  com.security.service.AuthService - User admin@mail.com logged in successfully
+2024-09-02 09:09:31 INFO  com.station.service.StationService - Stations retrieved successfully

@@ -6,4 +6,5 @@ include 'vehicle'
 include 'station'
 include 'route'
 include 'security'
+include 'log'
 

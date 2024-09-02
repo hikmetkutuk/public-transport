@@ -23,7 +23,7 @@
 - [x] Docker Compose
 - [x] Json Mapper
 - [x] Database Version Control with Liquibase
-- [ ] Log Management
+- [x] Log Management
 - [x] Swagger Doc
 - [x] Unit and Integration Tests
 
