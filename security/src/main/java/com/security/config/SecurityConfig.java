@@ -42,6 +42,10 @@ public class SecurityConfig {
         "/route/delete/*"
     };
 
+    private static final String[] SUPER_ADMIN_ROLE_LIST = new String[] {
+        "/vehicle/assign-route/*"
+    };
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(AbstractHttpConfigurer::disable)
@@ -51,6 +55,8 @@ public class SecurityConfig {
                         .hasAnyRole("USER", "ADMIN", "SUPER_ADMIN")
                         .requestMatchers(ADMIN_ROLE_LIST)
                         .hasAnyRole("ADMIN", "SUPER_ADMIN")
+                        .requestMatchers(SUPER_ADMIN_ROLE_LIST)
+                        .hasRole("SUPER_ADMIN")
                         .anyRequest()
                         .authenticated())
                 .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
