@@ -12,6 +12,7 @@
 
 - [x] Flow Architecture
 - [x] Multi Project Architecture
+- [ ] User data and test data added when project runs
 - [x] Spotless format gradle task
 - [x] Vehicle Service
 - [x] Station and Route Operations
@@ -23,7 +24,7 @@
 - [x] Database Version Control with Liquibase
 - [ ] Log Management
 - [ ] Swagger Doc
-- [ ] Unit and Integration Tests
+- [x] Unit and Integration Tests
 
 ---
 
